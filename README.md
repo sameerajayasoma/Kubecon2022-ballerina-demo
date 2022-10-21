@@ -1,8 +1,9 @@
 # KubeCon 2022 Detroit - Ballerina Demo
 This usecase is closely related to the Choreo KubeCon 2022 demo application. It is designed only to showcase Ballerina language capabilities. 
 
-Here is list of services and their interactions    
-TODO image 
+Here is list of services and their interactions:    
+![](services.png)
+
 
 ## Script
 ### demo_01.bal
