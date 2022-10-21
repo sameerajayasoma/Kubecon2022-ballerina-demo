@@ -1,0 +1,31 @@
+import ballerina/http;
+import ballerina/io;
+
+configurable string taskGroupServiceUrl = ?;
+
+type Group record {
+    int id;
+    string title;
+    string description;
+    string createdAt;
+    string updatedAt;
+};
+
+public function main() returns error? {
+    string title = "foo";
+    http:Client taskGroups = check new (taskGroupServiceUrl);
+    Group[] groups = check taskGroups->/groups;
+
+    Group[] filteredGroups = from var group in groups
+        where group.title == title
+        select group;
+
+    if filteredGroups.length() == 0 {
+        return error(string `Cannot find a group with title: ${title}`);
+    } else {
+        io:println(filteredGroups);
+    }
+}
+
+// TODO Document what to highlight during the demo
+// Use query expressions to filter out stuff 

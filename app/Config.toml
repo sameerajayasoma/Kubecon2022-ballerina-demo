@@ -1,0 +1,2 @@
+taskGroupServiceUrl = "http://localhost:8080"
+taskServiceUrl = "http://localhost:9090"

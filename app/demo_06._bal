@@ -1,0 +1,51 @@
+import ballerina/http;
+
+type Group record {
+    int id;
+    string title;
+    string description;
+    string createdAt;
+    string updatedAt;
+};
+
+type Task record {
+    int id;
+    string title;
+    string description;
+    int groupId;
+    string status;
+    string createdAt;
+    string updatedAt;
+};
+
+public type TaskRequest record {
+    string title;
+    string description;
+    int groupId?;
+    string status;
+    string createdAt;
+    string updatedAt;
+};
+
+service / on new http:Listener(8090) {
+    resource function get tasks(string? groupTitle) returns Task[]|error {
+        return error("Not implemented");
+    }
+
+    resource function get tasks/[string taskId]() returns Task[]|error {
+        return error("Not implemented");
+    }
+
+    resource function post tasks(@http:Payload TaskRequest taskReq) returns Task|error {
+        return error("Not implemented");
+    }
+
+    resource function delete tasks/[string taskId]() returns Task[]|error {
+        return error("Not implemented");
+    }
+}
+
+// TODO Document what to highlight during the demo
+// Talk about services, resource and remote methods
+// Explain how to write a resource function, path param and query params
+// Open the graphical view and show OpenAPI like view. 

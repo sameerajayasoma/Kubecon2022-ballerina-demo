@@ -1,0 +1,18 @@
+import ballerina/http;
+import ballerina/io;
+
+configurable string taskGroupServiceUrl = ?;
+
+type Group record {
+    int id;
+    string title;
+    string description;
+    string createdAt;
+    string updatedAt;
+};
+
+public function main() returns error? {
+    http:Client taskGroups = check new(taskGroupServiceUrl);
+    Group[] groups = check taskGroups -> /groups;
+    io:println(groups);
+}

@@ -1,0 +1,58 @@
+import ballerina/http;
+
+configurable string taskServiceUrl = ?;
+
+type Group record {
+    int id;
+    string title;
+    string description;
+    string createdAt;
+    string updatedAt;
+};
+
+type Task record {
+    int id;
+    string title;
+    string description;
+    int groupId;
+    string status;
+    string createdAt;
+    string updatedAt;
+};
+
+public type TaskRequest record {
+    string title;
+    string description;
+    int groupId?;
+    string status;
+    string createdAt;
+    string updatedAt;
+};
+
+service / on new http:Listener(8090) {
+    resource function get tasks(string? groupTitle, string? taskStatus) returns Task[]|error {
+        http:Client taskEp = check new (taskUrl);
+        Task[] tasks = check taskEp->get("/tasks");
+        if taskStatus is () {
+            return tasks;
+        } else {
+            return from var task in tasks
+                where task.status == taskStatus
+                select task;
+        }
+    }
+
+    resource function get tasks/[string taskId]() returns Task[]|error {
+        return error("Not implemented");
+    }
+
+    resource function post tasks(@http:Payload TaskRequest taskReq) returns Task|error {
+        return error("Not implemented");
+    }
+
+    resource function delete tasks/[string taskId]() returns Task[]|error {
+        return error("Not implemented");
+    }
+}
+
+// TODO Document what to highlight during the demo
