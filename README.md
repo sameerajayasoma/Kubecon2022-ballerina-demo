@@ -6,6 +6,8 @@ Here is list of services and their interactions:
 
 
 ## Script
+Explain the usecase using the above image and then move onto the VSCode. The goal is to develop the taskmgt service eventually.
+
 ### demo_01.bal
 - Introduce Ballerina, bal command and the VSCode plugin
 - Show the simple helloworld function
