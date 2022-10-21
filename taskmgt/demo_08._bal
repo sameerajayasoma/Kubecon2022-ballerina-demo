@@ -30,8 +30,16 @@ public type TaskRequest record {
     string updatedAt;
 };
 
+@display {
+    label: "TaskMgtService",
+    id: "TaskMgtService"
+}
 service / on new http:Listener(8090) {
     resource function get tasks(string? groupTitle, string? taskStatus) returns Task[]|error {
+        @display {
+            label: "TasksService",
+            id: "TasksService"
+        }
         http:Client taskEp = check new (taskServiceUrl);
         Task[] tasks;
         if groupTitle is () {
@@ -39,6 +47,10 @@ service / on new http:Listener(8090) {
             tasks = check taskEp->get("/tasks");
         } else {
             // Type narrowing groupTitle is string == true
+            @display {
+                label: "GroupService",
+                id: "GroupService"
+            }
             http:Client taskGroupEp = check new (taskGroupServiceUrl);
             Group[] allGroups = check taskGroupEp->get("/groups");
             int[] groupIds = from var {id, title} in allGroups
