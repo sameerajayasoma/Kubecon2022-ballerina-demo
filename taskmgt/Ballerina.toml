@@ -1,6 +1,6 @@
 [package]
 org = "kubecon2022"
-name = "app"
+name = "taskmgt"
 version = "0.1.0"
 distribution = "2201.2.0"
 
