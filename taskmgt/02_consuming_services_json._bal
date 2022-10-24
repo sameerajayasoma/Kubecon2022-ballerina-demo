@@ -1,0 +1,10 @@
+import ballerina/http;
+import ballerina/io;
+
+configurable string taskGroupServiceUrl = ?;
+
+public function main() returns error? {
+    http:Client taskGroups = check new (taskGroupServiceUrl);
+    json payload = check taskGroups->/groups;
+    io:println(payload);
+}

@@ -26,6 +26,3 @@ public function main() returns error? {
         io:println(filteredGroups);
     }
 }
-
-// TODO Document what to highlight during the demo
-// Use query expressions to filter out stuff 

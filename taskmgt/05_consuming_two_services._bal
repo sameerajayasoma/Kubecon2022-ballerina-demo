@@ -39,6 +39,3 @@ public function main() returns error? {
     Task[] tasks = check taskEp->/tasks(groupId = filteredGroups[0].id);
     io:println(tasks);
 }
-
-// TODO Document what to highlight during the demo
-// Just add task client and show the sequence diagram

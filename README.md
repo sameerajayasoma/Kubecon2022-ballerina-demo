@@ -4,6 +4,8 @@ This usecase is closely related to the Choreo KubeCon 2022 demo application. It 
 Here is list of services and their interactions:    
 ![](services.png)
 
+## Prerequisites
+- Ballerina 2201.2.2 (Swan Lake Update 2) or greater
 
 ## Script
 ### demo_01.bal

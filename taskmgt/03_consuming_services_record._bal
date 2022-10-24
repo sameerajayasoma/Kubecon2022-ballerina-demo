@@ -16,3 +16,4 @@ public function main() returns error? {
     Group[] groups = check taskGroups -> /groups;
     io:println(groups);
 }
+

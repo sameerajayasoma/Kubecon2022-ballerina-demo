@@ -1,5 +1,6 @@
 import ballerina/http;
 
+configurable string taskGroupServiceUrl = ?;
 configurable string taskServiceUrl = ?;
 
 type Group record {
@@ -30,16 +31,8 @@ public type TaskRequest record {
 };
 
 service / on new http:Listener(8090) {
-    resource function get tasks(string? groupTitle, string? taskStatus) returns Task[]|error {
-        http:Client taskEp = check new (taskUrl);
-        Task[] tasks = check taskEp->get("/tasks");
-        if taskStatus is () {
-            return tasks;
-        } else {
-            return from var task in tasks
-                where task.status == taskStatus
-                select task;
-        }
+    resource function get tasks(string? groupTitle) returns Task[]|error {
+        return error("Not implemented");
     }
 
     resource function get tasks/[string taskId]() returns Task[]|error {
@@ -54,5 +47,3 @@ service / on new http:Listener(8090) {
         return error("Not implemented");
     }
 }
-
-// TODO Document what to highlight during the demo

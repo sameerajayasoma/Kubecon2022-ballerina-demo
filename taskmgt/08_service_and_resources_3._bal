@@ -66,5 +66,3 @@ service / on new http:Listener(8090) {
         return error("Not implemented");
     }
 }
-
-// TODO Document what to highlight during the demo
