@@ -18,6 +18,10 @@ public type TaskResponse record {|
     string updatedAt;
 |};
 
+@display {
+    label: "TasksService",
+    id: "TasksService"
+}
 service / on new http:Listener(9090) {
     resource function post tasks(@http:Payload TaskRequest taskRequest) returns TaskResponse|error {
         return {id: 3333, title: "foobar", description: "Test task", groupId: 1234, status: "Open", createdAt: "today", updatedAt: "yesterday"};

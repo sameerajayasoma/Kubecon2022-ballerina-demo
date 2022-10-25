@@ -24,6 +24,10 @@ public type GroupResponse record {
 
 table<GroupEntity> key(id) groups = table [];
 
+@display {
+    label: "GroupService",
+    id: "GroupService"
+}
 service / on new http:Listener(8080) {
     resource function get groups() returns GroupResponse[]|error {
         io:println("11111");
