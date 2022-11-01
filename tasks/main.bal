@@ -24,7 +24,7 @@ public type TaskResponse record {|
 }
 service / on new http:Listener(9090) {
     resource function post tasks(@http:Payload TaskRequest taskRequest) returns TaskResponse|error {
-        return {id: 3333, title: "foobar", description: "Test task", groupId: 1234, status: "Open", createdAt: "today", updatedAt: "yesterday"};
+        return {id: 3333, title: "foobar1", description: "Test task", groupId: 1234, status: "Open", createdAt: "today", updatedAt: "yesterday"};
     }
 
     resource function get tasks/[string taskId]() returns TaskResponse|error {
